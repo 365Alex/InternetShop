@@ -12,12 +12,11 @@ public class ProductBasket {
     }
 
     public void add(Product product) {
-        if (size >= products.length) {
-            System.out.println("Корзина заполнена. Добавление товаров невозможно");
-            return;
+        if (size < products.length) {
+            products[size++] = product;
+        } else  {
+            System.out.println("Корзина заполнена");
         }
-        products[size] = product;
-        size++;
     }
 
     public int totalBasket() {
@@ -35,11 +34,15 @@ public class ProductBasket {
         }
 
 
-
+        int specialCount = 0;
         for (int i = 0; i < size; i++) {
-            System.out.println(products[i].getName() + " : " + products[i].getPrice());
+            System.out.println(products[i].toString());
+            if (products[i].isSpecial()){
+                specialCount++;
+            }
         }
-        System.out.println("Итого: " + totalBasket());
+        System.out.println("Итого: " + totalBasket() + " руб.");
+        System.out.println("Количество специальных товаров " + specialCount);
     }
 
     public void printResultSearchName(String name){
