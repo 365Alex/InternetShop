@@ -23,7 +23,7 @@ public class DiscountedProduct extends Product {
     }
     @Override
     public String toString(){
-        return getName() + "(цена со скидкой) : " + getPrice() + " руб. ("
+        return getNameProduct() + "(цена со скидкой) : " + getPrice() + " руб. ("
                 + basisPrice + "руб.)" + "(скидка: " + percent + "%)";
     }
 }
